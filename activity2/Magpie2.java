@@ -23,6 +23,7 @@ public class Magpie2
         return "Hello, let's talk.";
     }
     
+    
     /**
      * Gives a response to a user statement
      * 
@@ -33,6 +34,8 @@ public class Magpie2
     public String getResponse(String statement)
     {
         String response = "";
+        System.out.println(String);
+        System.out.println(String.trim());
         if (statement.indexOf("no") >= 0)
         {
             response = "Why so negative?";
