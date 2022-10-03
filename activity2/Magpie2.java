@@ -34,13 +34,12 @@ public class Magpie2
     public String getResponse(String statement)
     {
         String response = "";
-        System.out.println(String);
-        System.out.println(String.trim());
+        
         if (statement.indexOf("no") >= 0)
         {
             response = "Why so negative?";
         }
-        else if (statement.indexOf("mother") >= 0
+        else if (statement.indexOf("mother") >= 1
                 || statement.indexOf("father") >= 0
                 || statement.indexOf("sister") >= 0
                 || statement.indexOf("brother") >= 0)
@@ -55,7 +54,7 @@ public class Magpie2
         {
             response = "he sounds like a excellent teacher";
         }
-        return response;
+        return response.trim();
     }
 
     /**
@@ -86,6 +85,6 @@ public class Magpie2
             response = "You don't say.";
         }
 
-        return response;
+        return response.trim();
     }
 }
