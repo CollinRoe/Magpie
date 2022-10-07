@@ -35,9 +35,9 @@ public class Magpie2
     {
         String response = "";
         
-        if (statement.indexOf("no") >= 0)
+        if (statement.indexOf("Hi") >= 0)
         {
-            response = "Why so negative?";
+            response = "How is your day?";
         }
         else if (statement.indexOf("mother") >= 1
                 || statement.indexOf("father") >= 0
@@ -46,8 +46,11 @@ public class Magpie2
         {
             response = "Tell me more about your family.";
         }
-        else
-        {
+        
+        else if (statement.indexOf("no") >= 0) {
+            response = "Why so negitive?";
+        }
+        else {
             response = getRandomResponse();
         } 
         if (statement.indexOf("Jaffe") >= 0)
