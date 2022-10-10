@@ -41,9 +41,9 @@ public class Magpie3
             response = "Why so negative?";
         }
         else if (findKeyword(statement, "mother") >= 0
-                || findKeyword(statement, "father") >= 0
-                || findKeyword(statement, "sister") >= 0
-                || findKeyword(statement, "brother") >= 0)
+        || findKeyword(statement, "father") >= 0
+        || findKeyword(statement, "sister") >= 0
+        || findKeyword(statement, "brother") >= 0)
         {
             response = "Tell me more about your family.";
         }
@@ -71,7 +71,7 @@ public class Magpie3
      *         statement or -1 if it's not found
      */
     public int findKeyword(String statement, String goal,
-            int startPos)
+    int startPos)
     {
         String phrase = statement.trim();
         // The only change to incorporate the startPos is in
@@ -89,23 +89,23 @@ public class Magpie3
             if (psn > 0)
             {
                 before = phrase.substring(psn - 1, psn)
-                        .toLowerCase();
+                .toLowerCase();
             }
             if (psn + goal.length() < phrase.length())
             {
                 after = phrase.substring(
-                        psn + goal.length(),
-                        psn + goal.length() + 1)
-                        .toLowerCase();
+                    psn + goal.length(),
+                    psn + goal.length() + 1)
+                .toLowerCase();
             }
 
             // If before and after aren't letters, we've
             // found the word
             if (((before.compareTo("a") < 0) || (before
                     .compareTo("z") > 0)) // before is not a
-                                            // letter
-                    && ((after.compareTo("a") < 0) || (after
-                            .compareTo("z") > 0)))
+                // letter
+            && ((after.compareTo("a") < 0) || (after
+                    .compareTo("z") > 0)))
             {
                 return psn;
             }
@@ -113,7 +113,7 @@ public class Magpie3
             // The last position didn't work, so let's find
             // the next, if there is one.
             psn = phrase.indexOf(goal.toLowerCase(),
-                    psn + 1);
+                psn + 1);
 
         }
 
