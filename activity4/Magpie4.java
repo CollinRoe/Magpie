@@ -33,6 +33,8 @@ public class Magpie4
     public String getResponse(String statement)
     {
         String response = "";
+        int youPsn = findKeyword (statement, "you",0);
+        int iPsn = findKeyword(statement, "I", 0);
         if (statement.length() == 0)
         {
             response = "Say something, please.";
@@ -60,10 +62,8 @@ public class Magpie4
             response = transformIWantSomethingStatement(statement);
         }
         
-         else if(findKeyword(statement, "I " + statement + " you", 0) >= 0) {
-             int psnOfYou = findKeyword (statement, "you", 0);
-        	int psnOfMe = findKeyword (statement, "me", psnOfYou + 3);
-            response = transformISomethingYouStatement(statement);
+         else if(iPsn >= 0 && findKeyword(statement, "you", iPsn) >= 0) {
+			response = transformIYouStatement(statement);
         }
         
         else {
@@ -124,7 +124,7 @@ public class Magpie4
         return "Would you be be happy if you had " + restOfStatement + "?";
     }
     
-    private String transformISomethingYouStatement(String statement)
+    private String transformIYouStatement(String statement)
     {
         //  Remove the final period, if there is one
         statement = statement.trim();
@@ -132,12 +132,13 @@ public class Magpie4
                 .length() - 1);
         if (lastChar.equals("."))
         {
-            statement = statement.substring(0, statement
-                    .length() - 1);
+            statement = statement.substring(0, statement.length() - 1);
         }
-        int psn = findKeyword (statement, "I " + statement + " you", 0);
-        String restOfStatement = statement.substring(psn + 16).trim();
-        return "Why do you " + restOfStatement + "me?";
+        int psnOfI = findKeyword (statement, "I", 0);
+        int psnOfYou = findKeyword (statement, "you", psnOfI + 1);
+        
+        String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
+        return "Why do you " + restOfStatement + " me?";
     }
     
     
