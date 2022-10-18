@@ -68,11 +68,11 @@ public class Magpie5
             response = transformWhatAreYouFamousForStatement(statement);
         }
 
-        else if (findKeyword(statement, "What is you name", 0) >= 0) 
+        else if (findKeyword(statement, "What is your name", 0) >= 0) 
         {
             response = transformWhatIsYourNameStatement(statement);
         }
-
+        
         else if (findKeyword(statement, "Where were you born", 0) >= 0) 
         {
             response = transformWhereWereYouBornStatement(statement);
@@ -88,7 +88,7 @@ public class Magpie5
             response = transformDidYouHaveAnyChildrenStatement(statement);
         }
 
-        else if (findKeyword(statement, "What were their names", 0) >= 0) 
+        else if (findKeyword(statement, "What are their names", 0) >= 0) 
         {
             response = transformWhatWereTheirNamesStatement(statement);
         }
@@ -98,12 +98,12 @@ public class Magpie5
             response = transformWhereDidYouLiveStatement(statement);
         }
 
-        else if (findKeyword(statement, "What is something cool that you did", 0) >= 0) 
+        else if (findKeyword(statement, "What is something coolii you did", 0) >= 0) 
         {
             response = transformWhatIsSomethingCoolThatYouDidStatement(statement);
         }
 
-else if (findKeyword(statement, "What are your childrens names", 0) >= 0) 
+        else if (findKeyword(statement, "What are your childrens names", 0) >= 0) 
         {
             response = transformWhatAreYourChildrensNamesStatement(statement);
         }
@@ -381,7 +381,6 @@ else if (findKeyword(statement, "What are your childrens names", 0) >= 0)
         return "Why do you " + restOfStatement + " me?";
     }
 
-    
     /**
      * Search for one word in phrase.  The search is not case sensitive.
      * This method will check that the given goal is not a substring of a longer string
@@ -438,7 +437,6 @@ else if (findKeyword(statement, "What are your childrens names", 0) >= 0)
     {
         return findKeyword (statement, goal, 0);
     }
-
 
     /**
      * Pick a default response to use if nothing else fits.
